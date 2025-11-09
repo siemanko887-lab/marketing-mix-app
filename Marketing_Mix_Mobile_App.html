@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Marketing-Mix • Mobile Click-App</title>
+<style>
+  :root{
+    --bg:#0f172a;        /* slate-900 */
+    --card:#111827;      /* gray-900 */
+    --soft:#1f2937;      /* gray-800 */
+    --text:#e5e7eb;      /* gray-200 */
+    --muted:#9ca3af;     /* gray-400 */
+    --accent:#22d3ee;    /* cyan-400 */
+    --good:#34d399;      /* green-400 */
+    --warn:#fbbf24;      /* amber-400 */
+    --danger:#f87171;    /* red-400 */
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    -webkit-font-smoothing: antialiased; text-rendering:optimizeLegibility;
+  }
+  header{
+    position:sticky; top:0; z-index:50;
+    background:linear-gradient(180deg, rgba(15,23,42,0.95), rgba(15,23,42,0.7));
+    backdrop-filter: blur(6px);
+    padding:16px;
+    border-bottom:1px solid #233;
+  }
+  h1{margin:0; font-size:20px; letter-spacing:.4px;}
+  .subtitle{color:var(--muted); font-size:12px;}
+  .searchbar{
+    display:flex; gap:10px; margin-top:10px;
+  }
+  input[type="search"]{
+    flex:1; padding:12px 14px; border-radius:12px;
+    border:1px solid #2b3443; background:#0b1220; color:var(--text);
+    font-size:16px; outline:none;
+  }
+  .pill{
+    padding:10px 14px; border-radius:999px; border:1px solid #2b3443;
+    background:#0b1220; color:var(--accent); font-weight:600;
+  }
+  main{padding:16px; max-width:900px; margin:0 auto;}
+  .grid{display:grid; grid-template-columns:1fr; gap:14px;}
+  @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:linear-gradient(180deg, #0b1220, #0e1626);
+    border:1px solid #1e293b; border-radius:18px; padding:14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  }
+  .card button{
+    width:100%; text-align:left; background:transparent; color:inherit; border:0; padding:6px 0;
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    font-size:18px; font-weight:700;
+  }
+  .tag{font-size:12px; color:var(--muted); font-weight:600; border:1px solid #2b3443; padding:6px 10px; border-radius:999px;}
+  .content{display:none; padding-top:10px; color:#d1d5db; line-height:1.5;}
+  .content ul{padding-left:18px; margin:8px 0;}
+  .content li{margin:4px 0;}
+  .badge{font-size:12px; font-weight:700; color:var(--bg); background:var(--accent); border-radius:8px; padding:4px 8px;}
+  .row{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .hint{font-size:12px; color:var(--muted); margin-top:8px;}
+  .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
+  .chip{background:var(--soft); color:#cbd5e1; border:1px solid #2b3443; padding:6px 10px; border-radius:10px; font-size:12px;}
+  footer{padding:40px 16px; text-align:center; color:var(--muted);}
+  .show{display:block;}
+  .icon{font-size:22px; margin-right:6px;}
+  .divider{height:1px; background:#223; margin:10px 0;}
+</style>
+</head>
+<body>
+  <header>
+    <h1>📱 Marketing‑Mix • Click‑App</h1>
+    <div class="subtitle">Tippe auf ein Feld, um die Punkte auszuklappen. Nutze die Suche für Stichwörter.</div>
+    <div class="searchbar">
+      <input id="q" type="search" placeholder="Suchen: z. B. 'AIDA', 'Omnichannel', 'Skimming'">
+      <div class="pill" id="reset">Reset</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="cards">
+      <!-- PRODUCT -->
+      <div class="card" data-tags="product produkt politik sortiment marke verpackung service usp lebenszyklus diversifikation">
+        <div class="row">
+          <button data-target="c1"><span><span class="icon">📦</span>Product (Produktpolitik)</span><span class="badge">Tippen</span></button>
+          <span class="tag">P1</span>
+        </div>
+        <div id="c1" class="content">
+          <ul>
+            <li><b>Sortiment:</b> Breite (Produktarten) & Tiefe (Varianten).</li>
+            <li><b>Marke & Verpackung:</b> Wiedererkennung & Schutz.</li>
+            <li><b>Service & After‑Sales:</b> Garantie, Support, Ersatzteile.</li>
+            <li><b>USP:</b> Einzigartiger Nutzenvorteil.</li>
+            <li><b>Produktlebenszyklus:</b> Einführung → Wachstum → Reife → Sättigung → Rückgang.</li>
+            <li><b>Differenzierung & Erweiterung:</b> neue Varianten; <b>Diversifikation:</b> neue Produktfelder.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Positionierung</span><span class="chip">Qualität</span><span class="chip">Design</span>
+          </div>
+          <div class="hint">Merke: Kundenmehrwert & klare Positionierung sind Kern der Produktpolitik.</div>
+        </div>
+      </div>
+
+      <!-- PRICE -->
+      <div class="card" data-tags="price preis politik skimming penetration rabatte aktionen preisdifferenzierung psychologisch konditionen">
+        <div class="row">
+          <button data-target="c2"><span><span class="icon">💶</span>Price (Preispolitik)</span><span class="badge">Tippen</span></button>
+          <span class="tag">P2</span>
+        </div>
+        <div id="c2" class="content">
+          <ul>
+            <li><b>Strategien:</b> Skimming (hoch starten), Penetration (niedrig starten).</li>
+            <li><b>Preisdifferenzierung:</b> Zeit, Ort, Zielgruppe, Menge, Versionen.</li>
+            <li><b>Rabatte & Aktionen:</b> z. B. 2‑für‑1, Treue, Skonto.</li>
+            <li><b>Psychologische Preise:</b> 4,99 € wirkt günstiger als 5 €.</li>
+            <li><b>Konditionen:</b> Zahlungs- & Lieferbedingungen.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Wertbasiert</span><span class="chip">Wettbewerbspreis</span><span class="chip">Kostenplus</span>
+          </div>
+          <div class="hint">Merke: Preis ≠ Wert. Kunden zahlen für wahrgenommenen Nutzen.</div>
+        </div>
+      </div>
+
+      <!-- PLACE -->
+      <div class="card" data-tags="place distribution ort absatzweg direkt indirekt transport standort omni channel handel lager">
+        <div class="row">
+          <button data-target="c3"><span><span class="icon">🚚</span>Place (Distributionspolitik)</span><span class="badge">Tippen</span></button>
+          <span class="tag">P3</span>
+        </div>
+        <div id="c3" class="content">
+          <ul>
+            <li><b>Absatzwege:</b> direkt (Onlineshop) vs. indirekt (Händler).</li>
+            <li><b>Transport & Lager:</b> Eigen‑/Fremdtransport, Lieferzuverlässigkeit.</li>
+            <li><b>Standort:</b> Erreichbarkeit, Kosten, Konkurrenz, Frequenz.</li>
+            <li><b>Kanäle:</b> Multi‑/Cross‑/Omnichannel.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Logistikkosten</span><span class="chip">Lieferzeit</span><span class="chip">Servicegrad</span>
+          </div>
+          <div class="hint">Merke: „Richtiges Produkt, zur richtigen Zeit, am richtigen Ort.“</div>
+        </div>
+      </div>
+
+      <!-- PROMOTION -->
+      <div class="card" data-tags="promotion kommunikation werbung pr sales promotion direktmarketing online marketing social media seo sea sponsoring events messen product placement aida">
+        <div class="row">
+          <button data-target="c4"><span><span class="icon">📣</span>Promotion (Kommunikationspolitik)</span><span class="badge">Tippen</span></button>
+          <span class="tag">P4</span>
+        </div>
+        <div id="c4" class="content">
+          <ul>
+            <li><b>Werbung & AIDA:</b> Attention → Interest → Desire → Action.</li>
+            <li><b>PR & Sponsoring:</b> Imageaufbau, Vertrauen.</li>
+            <li><b>Sales Promotion:</b> Proben, Coupons, Displays.</li>
+            <li><b>Online‑Marketing:</b> SEO, SEA, Social Media, Influencer.</li>
+            <li><b>Direktmarketing:</b> Newsletter, Mailings.</li>
+            <li><b>Events/Messen & Product Placement</b></li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Owned</span><span class="chip">Paid</span><span class="chip">Earned</span>
+          </div>
+          <div class="hint">Merke: Passende Botschaft pro Kanal & klarer Call‑to‑Action.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="row">
+          <strong>📌 Lern‑Check</strong><span class="tag">Kurztest</span>
+        </div>
+        <div class="content show" id="quiz">
+          <ol>
+            <li>Welche Einstiegs‑Preisstrategien gibt es? (Tippe auf „Price“)</li>
+            <li>Was unterscheidet direkt von indirekt? (Tippe auf „Place“)</li>
+            <li>Nenne die Phasen des Produktlebenszyklus. (Tippe auf „Product“)</li>
+          </ol>
+          <div class="hint">Profi‑Tipp: Antworte in eigenen Worten – dann merkst du's dir besser.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>© Lernhilfe Marketing‑Mix • Offline nutzbar • Zum Startbildschirm hinzufügen für App‑Feeling</footer>
+
+<script>
+  // Expand / collapse
+  document.querySelectorAll('button[data-target]').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      const id = btn.getAttribute('data-target');
+      const el = document.getElementById(id);
+      el.classList.toggle('show');
+      // scroll into view when opening
+      if(el.classList.contains('show')){
+        el.scrollIntoView({behavior:'smooth', block:'nearest'});
+      }
+    });
+  });
+
+  // Simple search filter
+  const q = document.getElementById('q');
+  const cards = document.querySelectorAll('.card');
+  const reset = document.getElementById('reset');
+  q.addEventListener('input', e=>{
+    const term = q.value.toLowerCase().trim();
+    cards.forEach(c=>{
+      const hay = (c.innerText + ' ' + (c.dataset.tags||'')).toLowerCase();
+      c.style.display = hay.includes(term) ? '' : 'none';
+    });
+  });
+  reset.addEventListener('click', ()=>{ q.value=''; q.dispatchEvent(new Event('input')); });
+
+  // Save expanded state
+  const key='mmix-open';
+  document.querySelectorAll('.content').forEach((el,i)=>{
+    const open = JSON.parse(localStorage.getItem(key)||'{}');
+    if(open['c'+(i+1)]) el.classList.add('show');
+    el.addEventListener('transitionend',()=>{});
+  });
+  document.querySelectorAll('button[data-target]').forEach((btn)=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.getAttribute('data-target');
+      const open = JSON.parse(localStorage.getItem(key)||'{}');
+      open[id] = document.getElementById(id).classList.contains('show');
+      localStorage.setItem(key, JSON.stringify(open));
+    });
+  });
+</script>
+</body>
+</html>
